@@ -6,7 +6,15 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 00:22:44 by dateixei          #+#    #+#             */
-/*   Updated: 2022/06/13 00:22:45 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/06/24 03:38:27 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "pipex.h"
+
+int	main(int argc, char **argv)
+{
+	if (argc > 1)
+		(void) argv;
+	return (0);
+}
