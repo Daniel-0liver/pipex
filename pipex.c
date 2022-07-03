@@ -6,7 +6,7 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 00:22:44 by dateixei          #+#    #+#             */
-/*   Updated: 2022/07/01 04:09:29 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/07/04 00:32:33 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int main(int argc, char **argv, char **envp)
     printf("Victory!");
     free(cmd_path);
     return(0);
+	
 }
 
