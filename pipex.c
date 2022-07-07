@@ -6,7 +6,7 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 00:22:44 by dateixei          #+#    #+#             */
-/*   Updated: 2022/07/07 23:54:55 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/07/08 00:55:46 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int main(int argc, char **argv, char **envp)
 {
-	
+	I don't know how to start it.
 }
 
