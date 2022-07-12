@@ -9,7 +9,7 @@ LFT			=	libft/libft.a
 INC			=	-I ./includes -I ./libft/includes
 LIB			=	-L ./libft -lft
 OBJ			=	$(patsubst src%, obj%, $(SRC:.c=.o))
-SRC			=	
+SRC			=	src/pipex.c
 
 all:		$(LFT) obj $(NAME)
 
