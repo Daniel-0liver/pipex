@@ -6,7 +6,7 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 00:22:44 by dateixei          #+#    #+#             */
-/*   Updated: 2022/07/12 00:52:11 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/07/13 00:46:29 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,28 @@
 
 int main(int argc, char **argv)
 {
+	int id;
+	int n;
 	int i;
 	
 	(void) argc;
 	(void) argv;
-	i = 0;
-	fork();
-	fork();
-	fork();
-	fork();
-	fork();
-	printf("Hello World, %i\n", i++);
+	id = fork();
+	if (id == 0)
+		n = 1;
+	else
+		n = 6;
+	if (id != 0)
+	{
+		wait(0);
+	}
+	for (i = n; i < n + 5; i++)
+	{
+		printf("%d ", i);
+		// fflush(stdout);
+	}
+	if (id != 0)
+		puts("");
 	return (0);
 }
 
