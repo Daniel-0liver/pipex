@@ -6,7 +6,7 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 00:22:44 by dateixei          #+#    #+#             */
-/*   Updated: 2022/07/13 00:46:29 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/07/18 01:21:49 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,20 @@
 int main(int argc, char **argv)
 {
 	int id;
-	int n;
-	int i;
+	// int n;
+	// int i;
 	
 	(void) argc;
 	(void) argv;
+	id = 0;
 	id = fork();
 	if (id == 0)
-		n = 1;
+		sleep(1);
+	printf("ID :%d, %d\n", getpid(), id);
+	int n = wait(NULL);
+	if (n == -1)
+		puts("Execution finished");
 	else
-		n = 6;
-	if (id != 0)
-	{
-		wait(0);
-	}
-	for (i = n; i < n + 5; i++)
-	{
-		printf("%d ", i);
-		// fflush(stdout);
-	}
-	if (id != 0)
-		puts("");
+		printf("Child finished, %d", n);
 	return (0);
 }
-
