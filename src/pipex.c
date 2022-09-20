@@ -6,58 +6,45 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 00:22:44 by dateixei          #+#    #+#             */
-/*   Updated: 2022/09/17 19:18:36 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:23:05 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-int main()
+int main(void)
 {
-	int array[] = {1, 2, 3, 4, 1, 2};
-	int arrSize = sizeof(array) / sizeof(int);
-	int start, end;
-	int fd[2];
-	if (pipe(fd) == -1)
-		return (1);
+        int     fd[2], nbytes;
+        pid_t   childpid;
+        char    string[] = "Hello, world!\n";
+        char    readbuffer[80];
 
-	int id = fork();
-	if (id == -1)
-		return (2);
-	if (id == 0)
-	{
-		start = 0;
-		end = start + arrSize / 2;
-	} else 
-	{
-		start = arrSize / 2;
-		end = arrSize;
-	}
+        pipe(fd);
+        
+        if((childpid = fork()) == -1)
+        {
+                perror("fork");
+                exit(1);
+        }
 
-	int sum = 0;
-	int i;
-	for (i = start; i < end; i++)
-		sum += array[i];
+        if(childpid == 0)
+        {
+                /* Child process closes up input side of pipe */
+                close(fd[0]);
 
-	wait(NULL);
-	printf("Calculated partial sum: %d\n", sum);
-	
-	if (id == 0)
-	{
-		close(fd[0]);
-		write(fd[1], &sum, sizeof(sum));
-		close(fd[1]);	 
-	} 
-		else 
-	{
-		int sumFromChild;
-		close(fd[1]);
-		read(fd[0], &sumFromChild, sizeof(sumFromChild));
-		close(fd[0]);
+                /* Send "string" through the output side of pipe */
+                write(fd[1], string, (strlen(string)+1));
+                exit(0);
+        }
+        else
+        {
+                /* Parent process closes up output side of pipe */
+                close(fd[1]);
 
-		int totalSum = sum + sumFromChild;
-		printf("Total sum is %d\n", totalSum);
-	}
-	
-	return (0);
+                /* Read in a string from the pipe */
+                nbytes = read(fd[0], readbuffer, sizeof(readbuffer));
+                printf("Received string: %s", readbuffer);
+        }
+        
+        return(0);
 }
