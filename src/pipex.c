@@ -14,14 +14,15 @@
 
 int main(void)
 {
-        char    *argv[] = {"/bin/ls", "-l", NULL};
-
-        int val = execve(argv[0], argv, NULL);
-        
-        if (val -- -1)
-                perror("error");
-
-        printf("Done with ececve\n");
-
-        return(0);
+    int id = fork();
+    if (id != 0)
+    {
+    	int id2 = fork();
+		if (id2 != 0)
+        	fork();
+    }
+    
+    printf("Hello world\n");
+	
+    return(0);
 }

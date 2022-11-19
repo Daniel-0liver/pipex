@@ -13,6 +13,7 @@
 #ifndef PIPEX_H
 # define PIPEX_H
 
+# define SWAP(A, B) A ^= B ^= A ^= B;
 // # include "libft/include/libft.h"
 # include <stdio.h>
 # include <stdlib.h>

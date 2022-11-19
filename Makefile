@@ -4,7 +4,7 @@ RESET		= \033[0m
 
 NAME		=	pipex
 CC			=	gcc
-FLAGS		=	-Wall -Wextra -Werror -g
+FLAGS		=	#-Wall -Wextra -Werror -g
 LFT			=	libft/libft.a
 INC			=	-I ./includes -I ./libft/includes
 LIB			=	-L ./libft -lft
