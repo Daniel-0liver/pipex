@@ -12,17 +12,23 @@
 
 #include "../includes/pipex.h"
 
-int main(void)
+int main(int arc, char* argv[])
 {
-    int id = fork();
-    if (id != 0)
+    int pids[PROCESS_NUM];
+    int pipes[PROCESS_NUM + 1][2];
+    int i;
+
+    for (i = 0; i < PROCESS_NUM + 1; i++)
     {
-    	int id2 = fork();
-		if (id2 != 0)
-        	fork();
+        if (pipe(pipes[i]) == -1)
+            printf("Error with creating pipe\n");
     }
     
-    printf("Hello world\n");
-	
-    return(0);
+    for (i = 0; i < PROCESS_NUM; i++)
+    {
+        fork();
+    }
+    
+
+    return 0;
 }

@@ -14,6 +14,7 @@
 # define PIPEX_H
 
 # define SWAP(A, B) A ^= B ^= A ^= B;
+# define PROCESS_NUM 3
 // # include "libft/include/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
