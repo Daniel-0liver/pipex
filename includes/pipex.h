@@ -15,7 +15,7 @@
 
 # define SWAP(A, B) A ^= B ^= A ^= B;
 # define PROCESS_NUM 10
-// # include "libft/include/libft.h"
+# include "../libft/include/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
