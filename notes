@@ -1,0 +1,70 @@
+Functions and its usage
+open: The open() system call opens the file specified by pathname.
+
+int fd = open("file2", O_WRONLY | O_CREAT, 0777);
+
+close: Close a fd.
+
+close(fd);
+
+read: Read a file.
+
+read(fd, buf, bufsize);
+
+write: Write in an FD.
+
+write(fd, &buf, sizeof(buf));
+
+malloc: Allocate a space in the memory
+
+str = (char *) malloc(size * sizeof(char)); 
+
+free: Free the momory allocated
+
+free(str);
+
+perror: Print a system error message
+
+perror("Error: ");
+
+strerror: Return string describing error number
+
+printf("Error: %s\n", strerror(errno));
+
+access: Check users permissions for a file
+
+int fd = access("sample.txt", F_OK);
+
+dup: Duplicate the FD process.
+
+int fd = dup(fd);
+
+dup2: Change the New FD to the OldFD process
+
+int fd = dup2(newFD, oldFd);
+
+execve: Execut a new program.
+
+char path[] = "/usr/bin/ls";
+char *argVec[] = {"ls", "-la", NULL};
+char *envVec[] = {NULL};
+
+execve(path, argVec, envVec);
+
+exit: Exit and close any open FD belonging to the process.
+
+exit(0);
+
+fork: Create a child process
+
+fork();
+
+pipe: It is a channel to process communication with each other
+
+pipe(pipe);
+
+unlink:
+
+wait:
+
+waitpid:
