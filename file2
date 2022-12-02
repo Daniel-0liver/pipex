@@ -1,1 +1,18 @@
-Before the execveTest
+total 1388
+drwxr-xr-x 8 oliver oliver    4096 Nov 30 05:43 .
+drwxr-xr-x 4 oliver oliver    4096 Nov 19 02:25 ..
+drwxr-xr-x 8 oliver oliver    4096 Nov 30 05:34 .git
+-rw-r--r-- 1 oliver oliver     430 Nov 15 15:03 .gitignore
+drwxr-xr-x 2 oliver oliver    4096 Nov 15 15:03 .vscode
+-rw-r--r-- 1 oliver oliver    1072 Nov 15 15:03 LICENSE
+-rw-r--r-- 1 oliver oliver     853 Nov 19 03:07 Makefile
+-rw-r--r-- 1 oliver oliver    4628 Nov 15 15:03 README.md
+-rw-r--r-- 1 oliver oliver       3 Nov 22 20:48 file1
+-rwxr-xr-x 1 oliver oliver     940 Nov 30 05:42 file2
+drwxr-xr-x 2 oliver oliver    4096 Nov 15 15:03 includes
+drwxr-xr-x 5 oliver oliver    4096 Nov 25 16:27 libft
+-rw-r--r-- 1 oliver oliver    1128 Nov 30 04:09 notes
+drwxr-xr-x 2 oliver oliver    4096 Nov 30 05:43 obj
+-rwxr-xr-x 1 oliver oliver   26920 Nov 30 05:43 pipex
+-rw-r--r-- 1 oliver oliver 1325886 Nov 15 15:03 pipex.pdf
+drwxr-xr-x 2 oliver oliver    4096 Nov 28 00:07 src
