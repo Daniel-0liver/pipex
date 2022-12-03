@@ -6,7 +6,7 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 00:22:44 by dateixei          #+#    #+#             */
-/*   Updated: 2022/12/03 21:01:41 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/03 22:10:49 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	pipex(t_data *data, char **argv, char **envp)
 
 int	main(int argc, char **argv, char **envp)
 {
-	static	t_data	data;
+	static t_data	data;
 
 	if (argc != 5)
 	{

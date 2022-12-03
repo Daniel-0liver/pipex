@@ -6,7 +6,7 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 02:13:12 by dateixei          #+#    #+#             */
-/*   Updated: 2022/12/03 19:56:08 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/03 22:14:32 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // The strlen() function calculates the length of the string pointed to by s, 
 // excluding the terminating null byte ('\0').
 
-size_t		ft_strlen(const char	*str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	size;
 

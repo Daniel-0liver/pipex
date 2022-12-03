@@ -6,7 +6,7 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 23:02:10 by dateixei          #+#    #+#             */
-/*   Updated: 2022/12/03 17:08:22 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/03 22:20:28 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 typedef struct s_data
 {
-    int		end[2];
+	int		end[2];
 	int		fdin;
 	int		fdout;
 	char	**mypaths;

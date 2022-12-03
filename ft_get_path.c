@@ -6,7 +6,7 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 23:02:10 by dateixei          #+#    #+#             */
-/*   Updated: 2022/12/03 21:24:17 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/03 22:14:04 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ static void	ft_get_path_1(t_data *data)
 	{
 		data->cmd_path1 = ft_strjoin(data->mypaths[i++], data->cmd1[0], '/');
 		if (access(data->cmd_path1, F_OK) == 0)
-		{
 			return ;
-		}
 		free(data->cmd_path1);
 		data->cmd_path1 = NULL;
 	}
@@ -76,6 +74,6 @@ static void	ft_get_path_2(t_data *data)
 // print error if not found
 void	ft_get_paths(t_data *data)
 {
-    ft_get_path_1(data);
-    ft_get_path_2(data);
+	ft_get_path_1(data);
+	ft_get_path_2(data);
 }
