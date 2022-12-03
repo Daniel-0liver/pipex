@@ -6,38 +6,42 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 21:40:03 by dateixei          #+#    #+#             */
-/*   Updated: 2021/12/02 01:45:35 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/03 17:11:15 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../pipex.h"
 
 // Allocates (with malloc(3)) and returns a new
 // string, which is the result of the concatenation
 // of ’s1’ and ’s2’.
+// this is a modified version, it will ad a '/' between the strings
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2, char divider)
 {
-	char	*s_final;
-	size_t	size;
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
+	char	*buffer;
 
-	if (!s1 || !s2)
-		return (NULL);
-	size = ft_strlen(s1) + ft_strlen(s2);
-	s_final = (char *)malloc(size + 1);
-	if (!s_final)
-		return (NULL);
 	i = 0;
-	while (i < ft_strlen(s1))
+	j = 0;
+	if (!s1 || !s2)
+		return (0);
+	buffer = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 2);
+	if (buffer == NULL)
+		return (0);
+	while (s1[i] != '\0')
 	{
-		s_final[i] = s1[i];
+		buffer[i] = s1[i];
 		i++;
 	}
-	j = 0;
-	while (i < size)
-		s_final[i++] = s2[j++];
-	s_final[i] = '\0';
-	return (s_final);
+	buffer[i++] = divider;
+	while (s2[j] != '\0')
+	{
+		buffer[i] = s2[j];
+		i++;
+		j++;
+	}
+	buffer[i] = '\0';
+	return (buffer);
 }

@@ -6,13 +6,13 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 00:22:44 by dateixei          #+#    #+#             */
-/*   Updated: 2022/09/20 16:23:05 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/03 17:13:49 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	ft_init(char **argv, char **envp, t_data *data)
+void	ft_init(char **argv, char	**envp, t_data *data)
 {
 	int		i;
 	char	*path_from_envp;
@@ -62,24 +62,24 @@ static void	pipex(t_data *data, char **argv, char **envp)
 
 int	main(int argc, char **argv, char **envp)
 {
-	static t_data	data;
+	static	t_data	data;
 
 	if (argc != 5)
 	{
 		perror("Usage : ./pipex infile \"cmd1\" \"cmd2\" outfile\nError");
-		return (1);
+		exit (EXIT_FAILURE);
 	}
 	if (pipe(data.end) == -1)
 	{
 		perror("Pipe failed");
-		return (1);
+		exit (EXIT_FAILURE);
 	}
 	if (access(argv[1], F_OK) != 0)
 	{
-		write(STDERR, "pipex: ", 7);
-		write(STDERR, argv[1], ft_strlen(argv[1]));
-		write(STDERR, ": No such file or directory\n", 28);
-		data.flag1 = 1;
+		write(STDERR_FILENO, "pipex: ", 7);
+		write(STDERR_FILENO, argv[1], ft_strlen(argv[1]));
+		write(STDERR_FILENO, ": No such file or directory\n", 28);
+		exit (EXIT_FAILURE);
 	}
 	ft_init(argv, envp, &data);
 	ft_get_paths(&data);

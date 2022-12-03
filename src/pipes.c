@@ -1,15 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   pipes.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 00:22:44 by dateixei          #+#    #+#             */
-/*   Updated: 2022/09/20 16:23:05 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/03 16:53:43 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#define PROCESS_NUM 2
 #include "../includes/pipex.h"
 
 void test(void)
@@ -83,10 +84,7 @@ int main(int arc, char* argv[])
 		return 3;
 	}
 	printf("The final result is %d\n", y);
-    
 	for (i = 0; i < PROCESS_NUM; i++)
 		wait(NULL);
-	
-
     return 0;
 }

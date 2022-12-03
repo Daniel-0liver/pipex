@@ -6,11 +6,11 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 02:58:29 by dateixei          #+#    #+#             */
-/*   Updated: 2021/12/07 01:31:36 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/03 17:11:24 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../pipex.h"
 
 // The strncmp() function is similar, except it compares only the 
 // first (at most) n bytes of s1 and s2.

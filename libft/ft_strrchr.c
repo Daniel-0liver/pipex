@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 17:16:12 by dateixei          #+#    #+#             */
-/*   Updated: 2021/12/05 17:56:02 by dateixei         ###   ########.fr       */
+/*   Created: 2021/11/22 02:07:07 by dateixei          #+#    #+#             */
+/*   Updated: 2022/12/03 17:11:30 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../pipex.h"
 
-// Outputs the integer ’n’ to the given file
-// descriptor.
-
-void	ft_putnbr_fd(int n, int fd)
+//  The strrchr() function returns a 
+//  pointer to the last occurrence of the
+//  character c in the string s.
+char	*ft_strrchr(const char *s, int c)
 {
-	if (n == -2147483648)
+	const char	*k;
+	char		ch;
+
+	k = (char *)s;
+	ch = (char)c;
+	while (*s != '\0')
 	{
-		write(fd, "-2147483648", 11);
-		return ;
+		if (*s == ch)
+			k = s;
+		s++;
 	}
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		n *= -1;
-	}
-	if (n <= 9)
-		ft_putchar_fd((n + 48), fd);
-	else if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd((n % 10 + 48), fd);
-	}
+	if (ch == '\0')
+		return ((char *)s);
+	s = k;
+	if (*s == ch)
+		return ((char *)s);
+	return ((void *)0);
 }

@@ -1,45 +1,32 @@
-GREEN		= \033[0;32m
-RED			= \033[0;31m
-RESET		= \033[0m
 
 NAME		=	pipex
+
+LIB_PATH	=	libft/
+
+LIB_FILE	=	ft_split.c ft_strdup.c ft_strjoin.c ft_strncmp.c ft_strrchr.c ft_strlen.c
+
+SRCS		=	pipex.c ft_get_path.c ft_child.c ft_free_struct.c
+
+LIB			= 	$(addprefix $(LIB_PATH), $(LIB_FILE))
+
+HEADER		=	pipex.h
+OBJ			=	${SRCS:%.c=%.o}
+LIB_OBJ		=	${LIB:%.c=%.o}
+
 CC			=	gcc
-FLAGS		=	#-Wall -Wextra -Werror -g
-LFT			=	libft/libft.a
-INC			=	-I ./includes -I ./libft/includes
-LIB			=	-L ./libft -lft
-OBJ			=	$(patsubst src%, obj%, $(SRC:.c=.o))
-SRC			=	src/pipex.c
+CGLAGS		=	-Wall -Wextra -Werror -I${HEADER}
 
-all:		$(LFT) obj $(NAME)
+.PHONY		:	all clean fclean re
 
-$(NAME):	$(OBJ)
-			@$(CC) $(FLAGS) -o $@ $^ $(LIB) -fsanitize=address -g
+all			:	${NAME}
 
-$(LFT):		
-			@echo " [ .. ] | Compiling libft.."
-			@make -s -C libft
-			@echo " [ $(GREEN)OK$(RESET) ] | Libft ready!"
+${NAME}		:	$(OBJ) ${LIB_OBJ} ${HEADER}
+	$(CC) $(CFLAGS) $(OBJ) $(LIB_OBJ) -o $(NAME)
 
-obj:
-			@mkdir -p obj
+clean		:
+	${RM} ${OBJ} ${LIB_OBJ}
 
-obj/%.o:	src/%.c
-			@echo "$@ $(GREEN)created$(RESET)"
-			@$(CC) $(FLAGS) $(INC) -o $@ -c $<
+fclean		:	clean
+	${RM} ${NAME}
 
-clean:
-			@make -s $@ -C libft
-			@rm -rf $(OBJ) obj
-			@echo "Object files removed."
-
-fclean:		clean
-			@make -s $@ -C libft
-			@rm -rf $(NAME)
-			@echo "Binary file removed."
-
-re:			fclean all
-
-.PHONY:		all clean fclean re
-
-#42YerevanProjects
+re			: 	fclean all

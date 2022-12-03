@@ -6,11 +6,11 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 20:55:21 by dateixei          #+#    #+#             */
-/*   Updated: 2021/12/07 01:10:36 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/03 17:11:10 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../pipex.h"
 
 // The strdup() function returns a pointer to a new string which is a 
 // duplicate of the string s.  Memory for the
