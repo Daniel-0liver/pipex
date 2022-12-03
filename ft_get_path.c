@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_paths.c                                     :+:      :+:    :+:   */
+/*   ft_get_path.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 23:02:10 by dateixei          #+#    #+#             */
-/*   Updated: 2022/12/03 17:03:54 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/03 21:24:17 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static void	ft_get_path_1(t_data *data)
 	{
 		data->cmd_path1 = ft_strdup(data->cmd1[0]);
 		temp = ft_strrchr(data->cmd1[0], '/') + 1;
+		free(data->cmd1[0]);
 		data->cmd1[0] = ft_strdup(temp);
 		return ;
 	}
@@ -51,7 +52,8 @@ static void	ft_get_path_2(t_data *data)
 	if (access(data->cmd2[0], F_OK) == 0)
 	{
 		data->cmd_path2 = ft_strdup(data->cmd2[0]);
-		temp = ft_strrchr(data->cmd1[0], '/') + 1;
+		temp = ft_strrchr(data->cmd2[0], '/') + 1;
+		free(data->cmd2[0]);
 		data->cmd2[0] = ft_strdup(temp);
 		return ;
 	}
@@ -60,9 +62,7 @@ static void	ft_get_path_2(t_data *data)
 	{
 		data->cmd_path2 = ft_strjoin(data->mypaths[i++], data->cmd2[0], '/');
 		if (access(data->cmd_path2, F_OK) == 0)
-		{
 			return ;
-		}
 		free(data->cmd_path2);
 		data->cmd_path2 = NULL;
 	}

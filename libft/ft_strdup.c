@@ -6,7 +6,7 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 20:55:21 by dateixei          #+#    #+#             */
-/*   Updated: 2022/12/03 17:11:10 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/03 19:55:54 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ char	*ft_strdup(const char *s)
 	int		size;
 	int		i;
 
-	size = ft_strlen(s);
 	if (!s)
 		return (NULL);
+	size = ft_strlen(s);
 	dup_str = (char *)malloc(size + 1 * sizeof(char));
 	if (!dup_str)
 		return (0);

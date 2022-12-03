@@ -6,7 +6,7 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 00:22:44 by dateixei          #+#    #+#             */
-/*   Updated: 2022/12/03 17:10:22 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/03 18:27:43 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,3 @@ void    child_two(t_data *data, char **argv, char **envp)
         execve(data->cmd_path1, data->cmd1, envp);
     exit(EXIT_FAILURE);
 }
-

@@ -1,25 +1,5 @@
-.
-..
-.git
-.gitignore
-LICENSE
-Makefile
-README.md
-file1
-file2
-ft_child.c
-ft_child.o
-ft_free_struct.c
-ft_free_struct.o
-ft_get_path.c
-ft_get_path.o
-libft
-notes
-pipex
-pipex.c
-pipex.h
-pipex.o
-pipex.pdf
-src
-test
-test.c
+"Now?"
+"Now," said Deep Thought.
+"Doesn't matter!" said Phouchg. "We must know it! Now!"
+"Now?" inquired Deep Thought.
+"Yes! Now ..."
