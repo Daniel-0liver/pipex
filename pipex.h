@@ -6,7 +6,7 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 23:02:10 by dateixei          #+#    #+#             */
-/*   Updated: 2022/12/03 22:20:28 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/04 19:25:16 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>     //  STDIN
 # include <sys/types.h> //	wait
 # include <sys/wait.h>	//	wait
+# include <errno.h>
 
 # define STDERR 2
 //# define SWAP(A, B) A ^= B ^= A ^= B;
@@ -49,5 +50,6 @@ void	ft_get_paths(t_data *data);
 void	child_one(t_data *data, char **argv, char **envp);
 void	child_two(t_data *data, char **argv, char **envp);
 void	ft_free_struct(t_data *data);
+void	ft_free_array(char **str);
 
 #endif

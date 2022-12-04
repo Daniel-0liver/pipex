@@ -6,7 +6,7 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 20:55:21 by dateixei          #+#    #+#             */
-/*   Updated: 2022/12/03 19:55:54 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/04 13:41:46 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,23 @@
 // duplicate of the string s.  Memory for the
 // new string is obtained with malloc(3), and can be freed with free(3).
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *src)
 {
-	char	*dup_str;
-	int		size;
+	char	*new;
 	int		i;
+	int		size;
 
-	if (!s)
+	size = 0;
+	while (src[size])
+		++size;
+	if (!(new = malloc(sizeof(char) * (size + 1))))
 		return (NULL);
-	size = ft_strlen(s);
-	dup_str = (char *)malloc(size + 1 * sizeof(char));
-	if (!dup_str)
-		return (0);
 	i = 0;
-	while (s[i])
+	while (src[i])
 	{
-		dup_str[i] = s[i];
+		new[i] = src[i];
 		i++;
 	}
-	dup_str[i] = s[i];
-	return (dup_str);
+	new[i] = '\0';
+	return (new);
 }

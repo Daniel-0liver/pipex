@@ -6,7 +6,7 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:45:54 by dateixei          #+#    #+#             */
-/*   Updated: 2022/12/03 17:10:56 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/04 13:00:57 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,92 +17,80 @@
 // character ’c’ as a delimiter. The array must be
 // ended by a NULL pointer.
 
-static char	**ft_malloc_error(char **arr)
+int	word_count(char const *s, char c)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-	return (NULL);
-}
-
-static int	ft_isspace(char ch, char c)
-{
-	if (ch == c)
-		return (1);
-	return (0);
-}
-
-static int	count_words(const char *s, char c)
-{
+	int	i;
 	int	count;
 
+	i = 0;
 	count = 0;
-	while (*s)
+	while (s[i])
 	{
-		while (*s && ft_isspace(*s, c) == 1)
-			s++;
-		if (*s && ft_isspace(*s, c) == 0)
-		{
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
 			count++;
-			while (*s && ft_isspace(*s, c) == 0)
-				s++;
-		}
+		i++;
 	}
 	return (count);
 }
 
-static char	*malloc_word(const char *s, char c)
+int	word_length(char const *s, char c)
 {
-	char	*word;
-	int		i;
+	int	i;
+	int	len;
 
 	i = 0;
-	while (s[i] && ft_isspace(s[i], c) == 0)
-		i++;
-	word = (char *)malloc(sizeof(char) * (i + 1));
-	if (word == (char *)(void *)0)
-		return (NULL);
-	i = 0;
-	while (s[i] && ft_isspace(s[i], c) == 0)
+	len = 0;
+	while (s[i] != c && s[i] != '\0')
 	{
-		word[i] = s[i];
 		i++;
+		len++;
 	}
-	word[i] = '\0';
-	return (word);
+	return (len);
+}
+
+char	**f(char const *s, char c, char **result, int words_count)
+{
+	int	i;
+	int	j;
+	int	w_len;
+
+	while (*s == c)
+		s++;
+	i = -1;
+	while (++i < words_count)
+	{
+		while (*s == c)
+			s++;
+		j = 0;
+		w_len = word_length(s, c);
+		result[i] = (char *)malloc(sizeof(char) * (w_len + 1));
+		if (!(result[i]))
+			return (NULL);
+		while (j < w_len)
+		{
+			result[i][j] = *s;
+			s++;
+			j++;
+		}
+		result[i][j] = '\0';
+	}
+	return (result);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**arr;
-	int		i;
+	char	**result;
+	int		wcount;
 
-	i = 0;
-	if (!s)
-		return (0);
-	arr = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
-	if (arr == (char **)(void **)0)
+	while (*s == ' ')
+		s++;
+	if (*(s) == (0))
 		return (NULL);
-	while (*s)
-	{
-		while (*s && ft_isspace(*s, c) == 1)
-			s++;
-		if (*s && ft_isspace(*s, c) == 0)
-		{
-			arr[i] = malloc_word(s, c);
-			if (arr[i] == NULL)
-				return (ft_malloc_error(arr));
-			i++;
-			while (*s && ft_isspace(*s, c) == 0)
-				s++;
-		}
-	}
-	arr[i] = NULL;
-	return (arr);
+	wcount = word_count(s, c);
+	result = (char **)malloc(sizeof(char *) * (wcount + 1));
+	if (!(result))
+		return (NULL);
+	result = f(s, c, result, wcount);
+	result[wcount] = NULL;
+	return (result);
 }

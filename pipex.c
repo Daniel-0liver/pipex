@@ -6,11 +6,19 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 00:22:44 by dateixei          #+#    #+#             */
-/*   Updated: 2022/12/03 22:10:49 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/04 19:25:56 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+void	free_and_exit(t_data *data)
+{
+	ft_free_array(data->mypaths);
+	ft_free_array(data->cmd1);
+	ft_free_array(data->cmd2);
+	exit(EXIT_FAILURE);
+}
 
 void	ft_init(char **argv, char	**envp, t_data *data)
 {
@@ -27,12 +35,12 @@ void	ft_init(char **argv, char	**envp, t_data *data)
 	if (!data->cmd1)
 	{
 		perror("Error when initialising Command 1");
-		data->flag1 = 1;
+		free_and_exit(data);
 	}
 	if (!data->cmd2)
 	{
 		perror("Error when initialising Command 2");
-		data->flag2 = 1;
+		free_and_exit(data);
 	}
 	if (!data->mypaths)
 	{
