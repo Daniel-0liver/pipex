@@ -18,7 +18,7 @@ In this project we are asked to code a program which will immitate the behavior 
 The idea of the program is that we take an infile and two commands, and pass the infile as the standard input to the first command, and then pipe the output of the first command to the second command, and finally save it all to a second file. Now that we've seen the command, let's break it down:
 
 * ``<``: Used to denote that we will be passing the next argument as the standard input (stdin)
-* ``file1``: Path to the file we want to open as the standard input. It must exist and should be opened read-only
+* ``file1``: Path to the file we want to open as the standard input.
 * ``cmd1``: First command. It will receive the stdin and run a command with it, if applicable
 * ``|``: Transforms the standard output (stdout) of the first command into the standard input (stdin) for the next command
 * ``cmd2``: Receives the standard output of the first command as stdin and runs a command with it, if applicable

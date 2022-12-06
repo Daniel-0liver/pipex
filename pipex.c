@@ -6,7 +6,7 @@
 /*   By: dateixei <dateixei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 00:22:44 by dateixei          #+#    #+#             */
-/*   Updated: 2022/12/04 19:25:56 by dateixei         ###   ########.fr       */
+/*   Updated: 2022/12/06 00:48:18 by dateixei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	main(int argc, char **argv, char **envp)
 		write(STDERR_FILENO, "pipex: ", 7);
 		write(STDERR_FILENO, argv[1], ft_strlen(argv[1]));
 		write(STDERR_FILENO, ": No such file or directory\n", 28);
-		exit (EXIT_FAILURE);
+		data.flag1 = 1;
 	}
 	ft_init(argv, envp, &data);
 	ft_get_paths(&data);
