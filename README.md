@@ -7,7 +7,6 @@ processes, using pipes, forks and dups.
 
 > **Warning**: Don't copy/paste code you don't understand: it's bad for you, and for the school.
 
-
 ## About the project 
 
 In this project we are asked to code a program which will immitate the behavior of this shell command:
