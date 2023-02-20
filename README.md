@@ -70,4 +70,5 @@ Links
 ## Additional information
 
 This project was far more challeging than I thought it would be, and it was quite hard to understan
-some of the new concepts. But after all that hussle the code itself was rather simple. To know more about the project read the subject file.
+some of the new concepts. But after all that hussle the code itself was rather simple. To know more about the project read the subject file.<p/>
+[pipex.pdf](https://github.com/Daniel-0liver/pipex/blob/main/pipex.pdf)
